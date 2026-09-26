@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RBX Finder // Cari Sumber Aset Roblox</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <div class="nav-inner">
+      <a class="brand" href="#home" style="text-decoration:none; color:inherit;">
+        <div class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h7v7H4V4zm9 9h7v7h-7v-7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="brand-text">RBX Finder<span>Asset ID Lookup</span></div>
+      </a>
+      <nav>
+        <a class="nav-link active" href="#home" data-nav="home">Home</a>
+        <a class="nav-link" href="#info" data-nav="info">Info</a>
+      </nav>
+      <div class="status-pill"><span class="dot"></span> API aktif</div>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="ghost-word">RBX</div>
+    <div class="eyebrow-row">
+      <div class="eyebrow">Roblox Asset Lookup</div>
+      <div class="ref-code">v1 / rbx-finder</div>
+    </div>
+    <h1>Punya Asset ID doang? <em>Temukan sumbernya.</em></h1>
+    <p>Tempel Asset ID Roblox kamu — misal <code>17311713870</code> — sistem akan ambil datanya langsung dari server Roblox: nama item, siapa pembuatnya, sampai link create.roblox.com yang lengkap.</p>
+
+    <div class="trust-row">
+      <div class="trust-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg> rata-rata <b>&lt;3 detik</b></div>
+      <div class="trust-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg> <b>tanpa</b> login</div>
+      <div class="trust-chip"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> data <b>resmi</b> Roblox</div>
+    </div>
+  </section>
+
+  <section class="tool-section">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow">Coba sekarang</div>
+        <div class="section-title">Masukkan Asset ID kamu</div>
+      </div>
+    </div>
+
+    <div class="stages" id="stages">
+      <div class="stage" data-stage="0"><div class="node">01</div><div class="label">Deteksi ID</div><div class="stage-line"></div></div>
+      <div class="stage" data-stage="1"><div class="node">02</div><div class="label">Ambil Data</div><div class="stage-line"></div></div>
+      <div class="stage" data-stage="2"><div class="node">03</div><div class="label">Susun Link</div><div class="stage-line"></div></div>
+      <div class="stage" data-stage="3"><div class="node">04</div><div class="label">Tampilkan</div><div class="stage-line"></div></div>
+    </div>
+
+    <div class="panel">
+      <label class="panel-label">Sumber · Asset ID / link create.roblox.com</label>
+      <div class="input-row">
+        <input id="assetInput" type="text" placeholder="17311713870 atau tempel link create.roblox.com" autocomplete="off" spellcheck="false">
+        <button class="btn" id="goBtn">
+          <span class="spin"></span>
+          <span class="btn-txt">Cari</span>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="hint">Contoh: <code>17311713870</code> — tekan Enter atau klik Cari.</div>
+    </div>
+
+    <div class="console" id="console">
+      <div class="console-top">
+        <div class="dots"><span></span><span></span><span></span></div>
+        <div class="console-status" id="consoleStatus"></div>
+      </div>
+      <div class="console-body" id="consoleBody"></div>
+    </div>
+  </section>
+
+  <section class="section" id="info">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow">Info</div>
+        <div class="section-title">Cara kerja &amp; pertanyaan umum</div>
+      </div>
+    </div>
+
+    <div class="tab-switch">
+      <button class="tab-btn active" data-tab="panelCara">Cara Kerja</button>
+      <button class="tab-btn" data-tab="panelFaq">FAQ</button>
+    </div>
+
+    <div class="tab-panel active" id="panelCara">
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <div class="step-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.7"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+          <div class="step-title">Deteksi ID</div>
+          <div class="step-desc">Kamu tempel angka ID atau link create.roblox.com, sistem otomatis ambil angka ID-nya.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <div class="step-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12h6M14 12h6M10 6l4 6-4 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="step-title">Ambil Data</div>
+          <div class="step-desc">ID dikirim ke API resmi Roblox (economy.roblox.com) untuk ambil nama, tipe, harga, dan pembuat aset.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <div class="step-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M8 12h8M8 16h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+          <div class="step-title">Susun Link</div>
+          <div class="step-desc">Nama item diubah jadi slug, lalu digabung dengan ID untuk membentuk link create.roblox.com yang lengkap.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">04</div>
+          <div class="step-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12M6 11l6 6 6-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 21h14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+          <div class="step-title">Tampilkan</div>
+          <div class="step-desc">Semua hasil muncul di panel: nama, pembuat, harga, dan link siap salin atau dibuka langsung.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="panelFaq">
+      <div class="faq-list">
+        <div class="faq-item open">
+          <div class="faq-q">Data ini dari mana?<svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <div class="faq-a"><p>Langsung dari API publik Roblox (economy.roblox.com), bukan tebakan atau database pihak ketiga.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Kenapa pencarian kadang gagal?<svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <div class="faq-a"><p>Biasanya karena aset sudah dihapus, di-set privat oleh pembuatnya, ID salah ketik, atau API Roblox lagi membatasi permintaan.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Perlu login akun Roblox?<svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <div class="faq-a"><p>Enggak. Tempel ID, klik Cari, selesai. Gak ada akun atau data pribadi yang diminta.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Bisa dipakai buat aset apa saja?<svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <div class="faq-a"><p>Bisa untuk model, decal, gamepass, animasi, dan tipe aset lain yang punya halaman di create.roblox.com.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow">Kenapa RBX Finder</div>
+        <div class="section-title">Dibangun buat cepat &amp; jujur</div>
+      </div>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+        <div class="feat-title">Sat-set</div>
+        <div class="feat-desc">Tempel ID, klik Cari, hasil langsung keluar. Gak ada setting ribet.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="10" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M8 10V7a4 4 0 018 0v3" stroke="currentColor" stroke-width="1.7"/></svg></div>
+        <div class="feat-title">Data resmi</div>
+        <div class="feat-desc">Semua diambil langsung dari server Roblox, bukan hasil kira-kira.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+        <div class="feat-title">Nol ribet</div>
+        <div class="feat-desc">Gratis, tanpa login, tanpa iklan yang mengganggu.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-brand"><b>RBX Finder</b><span class="footer-dot"></span>Asset ID Lookup<span class="footer-dot"></span>v1</div>
+    <p>Ditenagai oleh <b>API Roblox</b></p>
+  </footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
