@@ -12,7 +12,12 @@ module.exports = async (req, res) => {
       return;
     }
 
-    const url = `https://thumbnails.roblox.com/v1/assets?assetIds=${encodeURIComponent(ids)}&size=150x150&format=Png&isCircular=false`;
+    const base = process.env.ROBLOX_THUMBS_API;
+    if (!base) {
+      res.status(500).json({ error: 'ROBLOX_THUMBS_API belum di-set di Environment Variables' });
+      return;
+    }
+    const url = `${base}?assetIds=${encodeURIComponent(ids)}&size=150x150&format=Png&isCircular=false`;
     const r = await fetch(url, { headers: { Accept: 'application/json' } });
 
     if (!r.ok) {

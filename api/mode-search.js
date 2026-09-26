@@ -13,7 +13,12 @@ module.exports = async (req, res) => {
     const params = new URLSearchParams({ limit });
     if (keyword) params.set('keyword', keyword);
 
-    const url = `https://apis.roblox.com/toolbox-service/v1/marketplace/10?${params.toString()}`;
+    const base = process.env.ROBLOX_TOOLBOX_API;
+    if (!base) {
+      res.status(500).json({ error: 'ROBLOX_TOOLBOX_API belum di-set di Environment Variables' });
+      return;
+    }
+    const url = `${base}?${params.toString()}`;
     const r = await fetch(url, { headers: { Accept: 'application/json' } });
 
     if (!r.ok) {
