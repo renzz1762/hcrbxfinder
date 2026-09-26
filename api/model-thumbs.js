@@ -4,8 +4,11 @@
    Ambil thumbnail gambar model dari Roblox lewat server,
    bukan langsung dari browser.
    ========================================================= */
+const { guard } = require('./_guard');
+
 module.exports = async (req, res) => {
   try {
+    if (guard(req, res)) return;
     const ids = (req.query.ids || '').toString().trim();
     if (!ids) {
       res.status(200).json({ data: [] });

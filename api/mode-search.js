@@ -5,8 +5,11 @@
    dari browser — jadi endpoint asli Roblox ga kelihatan kalau
    situs ini di-inspect/download, dan ga kena masalah CORS.
    ========================================================= */
+const { guard } = require('./_guard');
+
 module.exports = async (req, res) => {
   try {
+    if (guard(req, res)) return;
     const keyword = (req.query.keyword || '').toString().trim();
     const limit = (req.query.limit || '24').toString();
 

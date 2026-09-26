@@ -4,8 +4,11 @@
    Ambil detail asset Roblox lewat server 
    bukan langsung dari browser.
    ========================================================= */
+const { guard } = require('./_guard');
+
 module.exports = async (req, res) => {
   try {
+    if (guard(req, res)) return;
     const id = (req.query.id || '').toString().trim();
     if (!id) {
       res.status(400).json({ error: 'Parameter id wajib diisi' });
