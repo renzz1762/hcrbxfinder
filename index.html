@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="CikRorw">
 <title>RBX Finder // Cari Sumber Aset Roblox</title>
+<!-- Website ini dibuat & dimiliki oleh CikRorw — dilarang klaim/reupload tanpa izin -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,19 +16,17 @@
 
   <header>
     <div class="nav-inner">
-      <a class="brand" href="#home" style="text-decoration:none; color:inherit;">
+      <a class="brand" href="#" id="brandHome" style="text-decoration:none; color:inherit;">
         <div class="brand-mark">
           <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h7v7H4V4zm9 9h7v7h-7v-7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
         </div>
         <div class="brand-text">RBX Finder<span>Asset ID Lookup</span></div>
       </a>
-      <nav>
-        <a class="nav-link active" href="#home" data-nav="home">Home</a>
-        <a class="nav-link" href="#info" data-nav="info">Info</a>
-      </nav>
       <div class="status-pill"><span class="dot"></span> API aktif</div>
     </div>
   </header>
+
+  <div class="page active" data-page="home">
 
   <section class="hero" id="home">
     <div class="ghost-word">RBX</div>
@@ -170,11 +171,146 @@
     </div>
   </section>
 
+  </div>
+
+  <div class="page" data-page="owner">
+
+  <section class="section" id="owner">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow">Profile</div>
+        <div class="section-title">Profile Owner</div>
+      </div>
+    </div>
+
+    <div class="owner-card" id="ownerCard">
+      <div class="owner-avatar" id="ownerAvatar">C</div>
+      <div class="owner-body">
+        <div class="owner-name-row">
+          <span class="owner-name" id="ownerName">CikRorw</span>
+          <span class="verified-badge" id="ownerVerified" title="Akun IG terverifikasi asli">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 1.2 2.7-.4 1.4 2.3 2.3 1.4-.4 2.7L22 12l-1.6 2.4.4 2.7-2.3 1.4-1.4 2.3-2.7-.4L12 22l-2.4-1.6-2.7.4-1.4-2.3-2.3-1.4.4-2.7L2 12l1.6-2.4-.4-2.7 2.3-1.4 1.4-2.3 2.7.4L12 2z" fill="currentColor"/><path d="M8.5 12.2l2.4 2.4 4.6-5.1" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <div class="owner-role" id="ownerRole">Owner &amp; Developer</div>
+        <div class="owner-actions">
+          <a class="owner-btn tiktok" id="ownerTiktok" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82a4.28 4.28 0 01-2.66-2.65V3h-3.35v12.4a2.6 2.6 0 11-2.6-2.6c.19 0 .38.02.56.05V9.5a5.9 5.9 0 00-.56-.03A5.9 5.9 0 100 15.4a5.9 5.9 0 005.9 5.9 5.9 5.9 0 005.9-5.9V9.74a7.6 7.6 0 004.4 1.4V8.1a4.28 4.28 0 01-1.6-.3 4.3 4.3 0 002-1.98z"/></svg>
+            TikTok
+          </a>
+          <a class="owner-btn wa" id="ownerWa" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5.05-1.33A10 10 0 1012 2zm5.6 14.3c-.24.66-1.4 1.26-1.94 1.33-.5.07-1.12.1-1.8-.12a16.4 16.4 0 01-1.63-.6c-2.87-1.24-4.74-4.13-4.88-4.32-.14-.2-1.17-1.55-1.17-2.96 0-1.4.74-2.1 1-2.38.26-.28.57-.35.76-.35h.55c.18 0 .42-.07.65.5.24.58.82 2 .9 2.15.07.14.12.31.02.5-.1.2-.15.31-.3.48-.14.17-.3.37-.43.5-.14.14-.3.3-.13.58.17.28.76 1.26 1.63 2.04 1.12 1 2.06 1.32 2.34 1.47.28.14.44.12.6-.07.17-.2.72-.85.92-1.14.19-.28.38-.24.64-.14.26.1 1.66.78 1.94.93.28.14.47.21.54.33.07.12.07.68-.17 1.34z"/></svg>
+            Saluran WA
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-head promo-head">
+      <div>
+        <div class="section-eyebrow">Rekomendasi</div>
+        <div class="section-title">Website &amp; Aplikasi Lainnya</div>
+      </div>
+    </div>
+    <div class="promo-grid" id="promoGrid"></div>
+  </section>
+
+  </div>
+
+  <div class="page" data-page="model">
+
+  <section class="tool-section">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow">Creator Store</div>
+        <div class="section-title">Cari Model Roblox</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <label class="panel-label">Kata kunci · nama model yang dicari</label>
+      <div class="input-row">
+        <input id="modelInput" type="text" placeholder="contoh: car, house, sword" autocomplete="off" spellcheck="false">
+        <button class="btn" id="modelGoBtn">
+          <span class="spin"></span>
+          <span class="btn-txt">Cari</span>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="hint">Kosongkan buat lihat model populer, atau ketik kata kunci buat cari yang spesifik.</div>
+    </div>
+
+    <div class="model-status" id="modelStatus"></div>
+    <div class="model-grid" id="modelGrid"></div>
+  </section>
+
+  </div>
+
+  <div class="page" data-page="logs">
+
+  <section class="section" id="logs">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow">Riwayat</div>
+        <div class="section-title">Log Proses Pengerjaan</div>
+      </div>
+    </div>
+    <div class="log-list" id="logList"></div>
+  </section>
+
+  </div>
+
+  <div class="page" data-page="terminal">
+
+  <section class="section" id="terminal">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow">Developer</div>
+        <div class="section-title">Terminal Proses &amp; Error</div>
+      </div>
+    </div>
+
+    <div class="term-box">
+      <div class="term-top">
+        <div class="dots"><span></span><span></span><span></span></div>
+        <div class="term-status" id="terminalStatus"><span class="sdot"></span> Standby</div>
+      </div>
+      <div class="term-body" id="terminalBody"></div>
+    </div>
+    <div class="hint">Log ini nunjukin proses yang lagi jalan di website (cari asset, cari model, dll) dan nunjukin error kalau ada yang gagal — lengkap sama lokasi error-nya.</div>
+  </section>
+
+  </div>
+
   <footer>
     <div class="footer-brand"><b>RBX Finder</b><span class="footer-dot"></span>Asset ID Lookup<span class="footer-dot"></span>v1</div>
-    <p>Ditenagai oleh <b>API Roblox</b></p>
+    <p>Ditenagai oleh <b>API Roblox</b> · Website ini by <b>CikRorw</b></p>
   </footer>
 
+<nav class="bottom-nav">
+  <button class="nav-link active" data-nav="home">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M4 11l8-7 8 7M6 10v10h5v-6h2v6h5V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Home</span>
+  </button>
+  <button class="nav-link" data-nav="model">
+    <svg viewBox="0 0 24 24" fill="none"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.8-4.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    <span>Model</span>
+  </button>
+  <button class="nav-link" data-nav="logs">
+    <svg viewBox="0 0 24 24" fill="none"><rect x="5" y="3" width="14" height="18" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    <span>Logs</span>
+  </button>
+  <button class="nav-link" data-nav="terminal">
+    <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M7 9l3 3-3 3M13 15h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Terminal</span>
+  </button>
+  <button class="nav-link" data-nav="owner">
+    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    <span>Profile</span>
+  </button>
+</nav>
+
+<script src="js/promosi.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
