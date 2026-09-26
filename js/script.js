@@ -138,13 +138,7 @@ async function tryFetch(url){
   return res.json();
 }
 async function fetchAssetDetails(id){
-  const direct = `https://economy.roblox.com/v2/assets/${id}/details`;
-  try{
-    return await tryFetch(direct);
-  }catch(e){
-    const proxied = `https://api.allorigins.win/raw?url=${encodeURIComponent(direct)}`;
-    return await tryFetch(proxied);
-  }
+  return await tryFetch(`/api/asset-details?id=${encodeURIComponent(id)}`);
 }
 
 function showConsoleError(text){
@@ -315,28 +309,16 @@ const modelGrid = document.getElementById('modelGrid');
 async function fetchModelSearch(keyword){
   const params = new URLSearchParams({ limit: '24' });
   if(keyword) params.set('keyword', keyword);
-  const direct = `https://apis.roblox.com/toolbox-service/v1/marketplace/10?${params.toString()}`;
-  try{
-    return await tryFetch(direct);
-  }catch(e){
-    const proxied = `https://api.allorigins.win/raw?url=${encodeURIComponent(direct)}`;
-    return await tryFetch(proxied);
-  }
+  return await tryFetch(`/api/model-search?${params.toString()}`);
 }
 
 async function fetchModelThumbs(ids){
   if(!ids.length) return {};
-  const direct = `https://thumbnails.roblox.com/v1/assets?assetIds=${ids.join(',')}&size=150x150&format=Png&isCircular=false`;
   let json;
   try{
-    json = await tryFetch(direct);
+    json = await tryFetch(`/api/model-thumbs?ids=${ids.join(',')}`);
   }catch(e){
-    try{
-      const proxied = `https://api.allorigins.win/raw?url=${encodeURIComponent(direct)}`;
-      json = await tryFetch(proxied);
-    }catch(e2){
-      return {};
-    }
+    return {};
   }
   const map = {};
   (json?.data || []).forEach(t => { if(t?.targetId && t?.imageUrl) map[t.targetId] = t.imageUrl; });
